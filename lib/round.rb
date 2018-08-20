@@ -13,8 +13,8 @@ class Round
    @deck.cards.first
  end
 
- def record_guess(response)
-   card_attributes = "#{response[:value]} of #{response[:suit]}"
+ def record_guess(user_guess_hash)
+   card_attributes = "#{user_guess_hash[:value]} of #{user_guess_hash[:suit]}"
    guess = Guess.new(card_attributes, current_card)
    @guesses << guess
  end
