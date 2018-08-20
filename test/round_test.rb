@@ -32,14 +32,17 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_records_current_guess
-    guess = Guess.new("3 of Hearts", @card_1)
+    assert_equal 0, @round.guesses.count
+    # this is making it clear that there should be no guesses
+    # in the @round object. It's not actually necessary, but I added it
+    # to help myself better understand what's going on
     @round.record_guess({value: "3", suit: "Hearts"})
-    # binding.pry
-    # round.current_card
+    
     assert_equal 1, @round.guesses.count
-    # binding.pry
-    assert_includes @round.guesses, guess
-    # binding.pry
+
+    assert_equal "Hearts", @round.guesses.first.card.suit
+    # you could add more assertions about the available attributes of things in 
+    # the guesses array.
   end
 
 end
