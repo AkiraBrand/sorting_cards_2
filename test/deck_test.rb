@@ -52,7 +52,7 @@ def test_it_can_sort_three_cards
   card_2 = Card.new("3", "Clubs")
   card_3 = Card.new("8", "Spades")
   deck = Deck.new([card_1, card_2, card_3])
-  assert_equal [card_3, card_1, card_2], deck.sort_based_on_index
+  assert_equal [card_3, card_1, card_2], deck.sort_based_on_value
 end
 
 # def test_it_can_extract_values

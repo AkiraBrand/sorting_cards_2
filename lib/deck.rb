@@ -11,7 +11,7 @@ class Deck
     @cards.length
   end
 
-  def sort_based_on_index
+  def sort_based_on_value
   (@cards.count).times do |index|
   while cards[index].value > cards[index+1].value
     cards[index], cards[index + 1] = cards[index + 1], cards[index]
