@@ -11,20 +11,29 @@ class Deck
     @cards.length
   end
 
-  def card_values_as_strings
-    @cards.map do |card|
-      card.value
-    end
+  def sort_based_on_value
+  (@cards.count).times do |index|
+  while cards[index].value > cards[index+1].value
+    cards[index], cards[index + 1] = cards[index + 1], cards[index]
+  end
+   end
   end
 
-  def card_values_as_integers
-    card_values_as_strings.map do |card|
-      card.to_i
-    end
-  end
 
-  def swap_the_values
-    card_values_a
+  # def card_values_as_strings
+  #   @cards.map do |card|
+  #     card.value
+  #   end
+  # end
+  #
+  # def card_values_as_integers
+  #   card_values_as_strings.map do |card|
+  #     card.to_i
+  #   end
+  # end
+
+  # def swap_the_values
+  #   card_values_a
 
 
 
