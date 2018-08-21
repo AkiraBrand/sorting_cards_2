@@ -40,6 +40,9 @@ class RoundTest < Minitest::Test
       assert_instance_of Card, @round.guesses.first.card
       @round.record_guess({value: "3", suit: "Hearts"})
       assert_equal 2, @round.guesses.count
+      # @card_3 = Card.new("Jack", "Diamonds")
+      # guess = Guess.new("Jack of Diamonds", @card_3)
+      # assert_equal guess,  @round.record_guess({value: "Jack", suit: "Diamonds"})
   end
 
   def test_that_after_i_guess_the_deck_rotates_to_the_next_card
@@ -62,10 +65,6 @@ class RoundTest < Minitest::Test
     assert_equal 0, @round.correct_guesses
   end
 
-  # def test_it_roates_the_deck
-  #   @round.rotate
-  #   assert_equal @card_2, @round.current_card
-  # end
 
  def test_number_correct_starts_at_zero
    assert_equal 0, @round.correct_guesses
@@ -83,11 +82,10 @@ class RoundTest < Minitest::Test
    #HOW DO I ASK FOR THESE TWO INSTANCES OF A GUESS
    assert_equal [guess_1, guess_2], @round.guesses
   end
-  # def test_percent_correct
-  #   @round.record_guess({value: "3", suit: "Hearts"})
-  #   @round.record_guess({value: "3", suit: "Hearts"})
-  #   assert_equal 50, @round.percent_correct
-  # end
-  binding.pry
+
+ def test_the_percent_correct_equals_100_with_correct_guess
+     @round.record_guess({value: "3", suit: "Hearts"})
+     assert_equal 100, @round.percent_correct
+ end
 
 end
