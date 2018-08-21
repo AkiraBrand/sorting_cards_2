@@ -39,6 +39,7 @@ def test_it_can_sort_one_card
 end
 
 def test_it_can_sort_two_cards
+  skip
   card_1 = Card.new("5", "Hearts")
   card_2 = Card.new("3", "Clubs")
   deck = Deck.new([card_1, card_2])
@@ -46,11 +47,29 @@ def test_it_can_sort_two_cards
 end
 
 def test_it_can_sort_three_cards
+  skip
   card_1 = Card.new("5", "Hearts")
   card_2 = Card.new("3", "Clubs")
   card_3 = Card.new("8", "Spades")
   deck = Deck.new([card_1, card_2, card_3])
   assert_equal [card_3, card_1, card_2], deck.sort
+end
+
+def test_it_can_extract_values
+  card_1 = Card.new("5", "Hearts")
+  card_2 = Card.new("3", "Clubs")
+  card_3 = Card.new("8", "Spades")
+  deck = Deck.new([card_1, card_2, card_3])
+  assert_equal ["5", "3", "8"], deck.card_values_as_strings
+end
+
+def test_it_can_turn_those_values_into_integers
+  card_1 = Card.new("5", "Hearts")
+  card_2 = Card.new("3", "Clubs")
+  card_3 = Card.new("8", "Spades")
+  deck = Deck.new([card_1, card_2, card_3])
+  assert_equal [5, 3, 8], deck.card_values_as_integers
+  binding.pry
 end
 
 end
