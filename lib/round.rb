@@ -29,4 +29,8 @@ class Round
   @deck.cards.rotate!
  end
 
+ def percent_correct
+   @correct_guesses * 100 / @guesses.length
+ end
+
 end
