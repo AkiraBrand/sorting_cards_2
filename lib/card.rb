@@ -8,22 +8,36 @@ attr_reader :value,
     @suit = suit
   end
 
+  def card_value_in_hash
+            {
+             "1" => 10,
+             "2" => 20,
+             "3" => 30,
+             "4" => 40,
+             "5" => 50,
+             "6" => 60,
+             "7" => 70,
+             "8" => 80,
+             "9" => 90,
+             "10" => 100,
+             "Jack" => 110,
+             "Queen" => 120,
+             "King" => 130,
+             "Ace" => 140
+           }
+  end
 
-  # def suits
-  #   suits = {Clubs: 1,
-  #            Diamonds: 2,
-  #            Hearts: 3,
-  #            Spades: 4}
-  # end
+  def card_suit_in_hash
+            {
+             "Clubs" => 1,
+             "Diamonds" => 2,
+             "Hearts" => 3,
+             "Spades" => 4
+           }
+  end
 
-
-
-
-
-  # def suit_checker(suit)
-  #  if suit != "Spades" || suit != "Hearts" || suit != "Diamonds" || suit != "Clubs"
-  #   raise ArgumentError, "Please enter a valid suit"
-  #  end
-  # end
+  def cards_final_value
+    card_value_in_hash[value] + card_suit_in_hash[suit]
+  end
 
 end

@@ -35,7 +35,7 @@ class CardTest < Minitest::Test
    assert_equal "Correct!", guess.feedback
  end
 
- def test_the_correct_method_is_dynamic_in_functionality
+ def test_the_correct_method_is_dynamic
    card = Card.new("10", "Hearts")
    guess = Guess.new("9 of Hearts", card)
    assert_equal false, guess.correct?
