@@ -18,8 +18,7 @@ class RoundTest < Minitest::Test
    assert_instance_of Round, @round
   end
 
-
-  def test_it_takes_deck
+  def test_it_takes_a_deck_object
     assert_equal @deck, @round.deck
   end
 
@@ -32,17 +31,14 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_records_current_guess_and_guesses_array
-      assert_equal 0, @round.guesses.count
-      @round.record_guess({value: "3", suit: "Hearts"})
-      assert_equal 1, @round.guesses.count
-      assert_equal "Hearts", @round.guesses.first.card.suit
-      assert_equal "3", @round.guesses.first.card.value
-      assert_instance_of Card, @round.guesses.first.card
-      @round.record_guess({value: "3", suit: "Hearts"})
-      assert_equal 2, @round.guesses.count
-      # @card_3 = Card.new("Jack", "Diamonds")
-      # guess = Guess.new("Jack of Diamonds", @card_3)
-      # assert_equal guess,  @round.record_guess({value: "Jack", suit: "Diamonds"})
+    assert_equal 0, @round.guesses.count
+    @round.record_guess({value: "3", suit: "Hearts"})
+    assert_equal 1, @round.guesses.count
+    assert_equal "Hearts", @round.guesses.first.card.suit
+    assert_equal "3", @round.guesses.first.card.value
+    assert_instance_of Card, @round.guesses.first.card
+    @round.record_guess({value: "3", suit: "Hearts"})
+    assert_equal 2, @round.guesses.count
   end
 
   def test_that_after_i_guess_the_deck_rotates_to_the_next_card
@@ -70,22 +66,14 @@ class RoundTest < Minitest::Test
    assert_equal 0, @round.correct_guesses
  end
 
-  def test_number_correct_increments
-    @round.record_guess({value: "3", suit: "Hearts"})
-    assert_equal 1, @round.correct_guesses
-  end
-
-  def test_the_guesses_array_takes_my_guesses
-   skip
-   guess_1 =  @round.record_guess({value: "3", suit: "Hearts"})
-   guess_2 =  @round.record_guess({value: "4", suit: "Clubs"})
-   #HOW DO I ASK FOR THESE TWO INSTANCES OF A GUESS
-   assert_equal [guess_1, guess_2], @round.guesses
-  end
+ def test_number_correct_increments
+   @round.record_guess({value: "3", suit: "Hearts"})
+   assert_equal 1, @round.correct_guesses
+ end
 
  def test_the_percent_correct_equals_100_with_correct_guess
-     @round.record_guess({value: "3", suit: "Hearts"})
-     assert_equal 100, @round.percent_correct
+   @round.record_guess({value: "3", suit: "Hearts"})
+   assert_equal 100, @round.percent_correct
  end
 
 end
