@@ -12,9 +12,6 @@ class Deck
     @cards.length
   end
 
-  def sort
-
-  end
 
   def sort_small_values(cards)
     (@cards.length-1).times do |index|
@@ -38,7 +35,6 @@ class Deck
       return cards
     end
   end
-end
 
   def sort_face_values(cards)
       @value = {Ace: 14,
@@ -47,12 +43,17 @@ end
                Jack: 11}
 
     (@cards.count-1).times do |index|
-      if @value[cards[index].value.to_sym]
-        [cards[index].value.to_sym]
-      end
-      while cards[index].value > cards[index+1].value
+      while @value[cards[index].value.to_sym] > @value[cards[index+1].value.to_sym]
         cards[index], cards[index + 1] = cards[index + 1], cards[index]
       end
       return cards
     end
   end
+
+  def sort
+    sort_face_values(cards)
+    sort_small_values(cards)
+    sort_based_on_suit(cards)
+  end
+
+end

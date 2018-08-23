@@ -71,4 +71,12 @@ def test_it_can_sort_face_value_cards
   assert_equal [card_2, card_1], result
 end
 
+def test_it_sorts_all_the_things
+  card_1 = Card.new("5", "Hearts")
+  card_2 = Card.new("3", "Clubs")
+  card_3 = Card.new("3", "Spades")
+  deck = Deck.new([card_1, card_2, card_3])
+  assert_equal [card_3, card_2, card_1], deck.sort
+end
+
 end
