@@ -43,7 +43,7 @@ def test_it_can_sort_two_cards
   card_1 = Card.new("5", "Hearts")
   card_2 = Card.new("3", "Clubs")
   deck = Deck.new([card_1, card_2])
-  assert_equal [card_2, card_1], deck.sort
+  assert_equal [card_2, card_1], deck.sort_small_values([card_1, card_2])
 end
 
 def test_it_can_sort_three_cards_based_on_value
@@ -51,28 +51,25 @@ def test_it_can_sort_three_cards_based_on_value
   card_2 = Card.new("3", "Clubs")
   card_3 = Card.new("8", "Spades")
   deck = Deck.new([card_1, card_2, card_3])
-  assert_equal [card_2, card_1, card_3], deck.sort
+  assert_equal [card_2, card_1, card_3], deck.sort_small_values([card_1, card_2, card_3])
   # binding.pry
 end
 
 def test_it_can_sort_two_cards_based_on_suit
+  skip
   card_1 = Card.new("3", "Hearts")
   card_2 = Card.new("3", "Clubs")
   deck = Deck.new([card_1, card_2])
-  binding.pry
   result = deck.sort_based_on_suit([card_1, card_2])
-  binding.pry
   assert_equal [card_2, card_1], result
 end
 
 def test_it_can_sort_face_value_cards
-  skip
   card_1 = Card.new("Ace", "Hearts")
   card_2 = Card.new("Jack", "Clubs")
   deck = Deck.new([card_1, card_2])
-  # binding.pry
-  deck.sort_based_on_value
-  assert_equal [card_2, card_1], deck.cards
+  result = deck.sort_face_values([card_1, card_2])
+  assert_equal [card_2, card_1], result
 end
 
 
